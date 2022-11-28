@@ -58,9 +58,10 @@
             </div>
             <div class="row mt-5">
                 <div class="col-6">
-                    <div class="shadow rounded p-5">
+                    <div id="depositForm" class="shadow rounded p-5">
                         <h5>Deposit</h5>
                         <input type="text" name="" id="depositAmount" class="form-control my-3" placeholder="$ amount you want to deposit" >
+                        <p id="depositValidate"></p>
                         <button type="submit" id="depositBtn" class="btn btn-success">Deposit</button>
                     </div>
                 </div>
@@ -68,6 +69,7 @@
                     <div class="shadow rounded p-5">
                         <h5>Withdraw</h5>
                         <input type="text" name="" id="withdrawAmount" class="form-control my-3" placeholder="$ amount you want to withdraw">
+                        <p id="withdrawValidate"></p>
                         <button type="submit" id="withdrawBtn" class="btn btn-danger">Withdraw</button>
                     </div>
                 </div>
@@ -97,8 +99,11 @@
             let depositAmount = parseFloat(document.getElementById('depositAmount').value);
             if (!depositAmount) {
                 depositAmount = 0;
+                var depositValidate = document.getElementById('depositValidate');
+                depositValidate.innerText = "Please input the Deposit Amount";
+                depositValidate.style.color = 'red';
             }
-            // console.log(depositAmount);
+
             function depositMoney() {
                 const currentDeposit = parseFloat(document.getElementById('currentDeposit').innerText);
                 const totalCurrentDeposit = depositAmount + currentDeposit;
@@ -118,6 +123,9 @@
             let withdrawAmount = parseFloat(document.getElementById('withdrawAmount').value);
             if (!withdrawAmount) {
                 withdrawAmount = 0;
+                var withdrawValidate = document.getElementById('withdrawValidate');
+                withdrawValidate.innerText = "Please input the Withdraw Amount";
+                withdrawValidate.style.color = 'red';
             }
 
             function depositMoney() {
